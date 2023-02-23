@@ -1,30 +1,34 @@
 package collections;
 
-import java.time.LocalDate;
+import commands.Command;
 
-public class HumanBeing {
-    private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+public class HumanBeing implements Comparable<HumanBeing> {
+    private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private boolean realHero;
     private Boolean hasToothpick; //Поле может быть null
-    private Integer impactSpeed; //Поле не может быть null
+    private Float impactSpeed; //Поле не может быть null
     private String soundtrackName; //Поле не может быть null
-    private double minutesOfWaiting;
-    private WeaponType weaponType; //Поле не может быть null
-    private Car car; //Поле не может быть null
+    private Double minutesOfWaiting; //Поле может быть null
+    private WeaponType weaponType; //Поле может быть null
+    private Car car; //Поле может быть null
 
 
     public HumanBeing() {
 
     }
 
-    public HumanBeing(Long id, String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Integer impactSpeed, String soundtrackName, double minutesOfWaiting, WeaponType weaponType, Car car) {
+    public HumanBeing(Integer id, String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Float impactSpeed, String soundtrackName, double minutesOfWaiting, WeaponType weaponType, Car car) {
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = LocalDate.now();
+        this.creationDate = new Date();
         this.realHero = realHero;
         this.hasToothpick = hasToothpick;
         this.impactSpeed = impactSpeed;
@@ -32,5 +36,28 @@ public class HumanBeing {
         this.minutesOfWaiting = minutesOfWaiting;
         this.weaponType = weaponType;
         this.car = car;
+    }
+
+    /**
+     * @param o the object to be compared.
+     * @return comparison result
+     */
+    @Override
+    public int compareTo(HumanBeing o) {
+        if (impactSpeed < o.impactSpeed) {
+            return -1;
+        } else if (impactSpeed == o.impactSpeed) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    /**
+     * getter for ID of HumanBeing
+     * @return id
+     */
+    public Integer getId() {
+        return id;
     }
 }
