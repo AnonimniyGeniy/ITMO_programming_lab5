@@ -1,14 +1,14 @@
 package commands;
 
-import aggregators.CollectionAggregator;
+import managers.CollectionManager;
 
 public class Insert extends AbstractCommand{
 
-    private final CollectionAggregator collectionAggregator;
+    private final CollectionManager collectionManager;
 
-    public Insert(CollectionAggregator collectionAggregator){
+    public Insert(CollectionManager collectionManager){
         super("Insert", "Add element to the collection.");
-        this.collectionAggregator = collectionAggregator;
+        this.collectionManager = collectionManager;
     }
     @Override
     public String describe() {

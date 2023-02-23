@@ -1,14 +1,12 @@
-package aggregators;
+package managers;
 
 import collections.*;
-import commands.Info;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
-import java.util.HexFormat;
 import java.util.TreeMap;
 
-public class CollectionAggregator {
+public class CollectionManager {
 
     private TreeMap<Integer, HumanBeing> humanBeingCollection;
 
@@ -23,7 +21,7 @@ public class CollectionAggregator {
         }
     };
 
-    public CollectionAggregator() {
+    public CollectionManager() {
         humanBeingCollection = new TreeMap(humanBeingComparator);
         creationTime = LocalDateTime.now();
     }

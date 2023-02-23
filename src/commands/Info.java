@@ -1,13 +1,13 @@
 package commands;
-import aggregators.CollectionAggregator;
+import managers.CollectionManager;
 
 public class Info extends AbstractCommand{
 
-    private final CollectionAggregator collectionAggregator;
+    private final CollectionManager collectionManager;
 
-    public Info(CollectionAggregator collectionAggregator){
+    public Info(CollectionManager collectionManager){
         super("info","Get info about collection.");
-        this.collectionAggregator = collectionAggregator;
+        this.collectionManager = collectionManager;
     }
     @Override
     public String describe() {
