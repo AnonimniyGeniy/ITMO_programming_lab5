@@ -24,6 +24,7 @@ public class CollectionManager {
     public CollectionManager() {
         humanBeingCollection = new TreeMap(humanBeingComparator);
         creationTime = LocalDateTime.now();
+
     }
 
     /**

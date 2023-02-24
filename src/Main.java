@@ -3,6 +3,7 @@ import commands.Info;
 import commands.Insert;
 import managers.CollectionManager;
 import managers.CommandManager;
+import managers.UserConsole;
 
 import java.io.Console;
 import java.util.ArrayList;
@@ -13,10 +14,12 @@ public class Main {
 
         CollectionManager collectionManager = new CollectionManager();
         List<AbstractCommand> commands = new ArrayList<>();
-        commands.add(new Info(collectionManager));
-        commands.add(new Info(collectionManager));
+        var console = new UserConsole();
+        commands.add(new Info(console, collectionManager));
+        commands.add(new Info(console, collectionManager));
 
         var commandManager = new CommandManager(commands);
-        commandManager.getCommands().get("");
+
+
     }
 }

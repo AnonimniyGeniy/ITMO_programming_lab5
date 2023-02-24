@@ -2,10 +2,8 @@ package collections;
 
 public enum WeaponType {
     HAMMER,
+    AXE,
     SHOTGUN,
     RIFLE,
-    MACHINE_GUN,
     BAT;
-
-
 }
