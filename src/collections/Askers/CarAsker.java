@@ -38,11 +38,15 @@ public class CarAsker extends Asker {
                 console.println("Enter car name:");
                 name = CommandParser.getScanner().nextLine().trim();
                 if (name.equals("")) throw new EmptyFieldException();
+                car = new Car(name);
+                break;
+
             } catch (EmptyFieldException e) {
                 console.println("Field can't be empty");
                 if (fileMode) throw new IncorrectScriptInputException();
             }
         }
+        return car;
     }
 
 
