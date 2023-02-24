@@ -1,10 +1,19 @@
 package collections;
 
-public class Car {
+import other.Validatable;
+
+public class Car implements Validatable {
     private String name; //Поле не может быть null
 
     public Car(String name) {
         this.name = name;
     }
 
+    /**
+     * @return
+     */
+    @Override
+    public boolean validate() {
+        return name != null;
+    }
 }

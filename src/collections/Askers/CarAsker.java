@@ -5,6 +5,7 @@ import managers.CommandParser;
 import managers.Console;
 import collections.Car;
 import exceptions.EmptyFieldException;
+import exceptions.InvalidObjectException;
 
 
 public class CarAsker extends Asker {
@@ -20,8 +21,11 @@ public class CarAsker extends Asker {
      * @return
      */
     @Override
-    public Object build() {
-        return null;
+    public Car build() throws IncorrectScriptInputException, EmptyFieldException, InvalidObjectException {
+        var car = askCar();
+        if (!car.validate()) throw new InvalidObjectException();
+
+        return car;
     }
 
     /**
