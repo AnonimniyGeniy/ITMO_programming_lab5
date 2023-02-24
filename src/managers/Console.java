@@ -1,5 +1,4 @@
 package managers;
 
-public class Console {
-
+public interface Console {
 }

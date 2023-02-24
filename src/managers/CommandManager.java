@@ -15,6 +15,12 @@ public class CommandManager {
     private final List<String> commandHistory = new ArrayList<>();
 
 
+    public CommandManager(List<AbstractCommand> commands){
+        for (AbstractCommand command : commands){
+            addCommand(command);
+        }
+    }
+
     /**
      * Adds command to commands
      *
@@ -50,4 +56,7 @@ public class CommandManager {
     public void addHistory(String command) {
         commandHistory.add(command);
     }
+
+
+
 }
