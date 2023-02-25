@@ -22,7 +22,7 @@ public class Info extends AbstractCommand {
 
     @Override
     public String getName() {
-        return "Info";
+        return "info";
     }
 
     @Override

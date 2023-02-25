@@ -1,12 +1,13 @@
 package collections;
 
 import commands.Command;
+import other.Validatable;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class HumanBeing implements Comparable<HumanBeing> {
+public class HumanBeing implements Comparable<HumanBeing>, Validatable {
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -24,8 +25,7 @@ public class HumanBeing implements Comparable<HumanBeing> {
 
     }
 
-    public HumanBeing(Integer id, String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Float impactSpeed, String soundtrackName, double minutesOfWaiting, WeaponType weaponType, Car car) {
-        this.id = id;
+    public HumanBeing(String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Float impactSpeed, String soundtrackName, double minutesOfWaiting, WeaponType weaponType, Car car) {
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = new Date();
@@ -36,6 +36,17 @@ public class HumanBeing implements Comparable<HumanBeing> {
         this.minutesOfWaiting = minutesOfWaiting;
         this.weaponType = weaponType;
         this.car = car;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public boolean validate() {
+        return id != null && id > 0 && name != null
+                && !name.equals("") && coordinates != null
+                && creationDate != null && impactSpeed != null
+                && soundtrackName != null;
     }
 
     /**

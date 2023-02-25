@@ -11,11 +11,12 @@ import java.util.Map;
  * Class that manages commands.....
  */
 public class CommandManager {
-    private final Map<String, AbstractCommand> commands = new HashMap<>();
+    private final Map<String, AbstractCommand> commands;
     private final List<String> commandHistory = new ArrayList<>();
 
 
     public CommandManager(List<AbstractCommand> commands){
+        this.commands = new HashMap<>();
         for (AbstractCommand command : commands){
             addCommand(command);
         }
@@ -27,7 +28,7 @@ public class CommandManager {
      * @param command - command(extends AbstractCommand)
      */
     public void addCommand(AbstractCommand command) {
-        commands.put(command.getName(), command);
+        this.commands.put(command.getName(), command);
     }
 
     /**

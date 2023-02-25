@@ -20,7 +20,7 @@ public class Insert extends AbstractCommand{
 
     @Override
     public String getName() {
-        return "Insert";
+        return "insert";
     }
 
     @Override
