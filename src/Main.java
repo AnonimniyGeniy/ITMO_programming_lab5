@@ -33,10 +33,7 @@ public class Main {
         commandParser.setScanner(new Scanner(System.in));
 
         try {
-            //W car = new CarAsker(console).build();
 
-            Double minutesOfWaiting = new HumanBeingAsker(console, collectionManager).askMinuteOfWaiting();
-            System.out.println(minutesOfWaiting);
         } catch (Exception e) {
             e.printStackTrace();
         }
