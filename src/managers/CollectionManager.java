@@ -22,7 +22,7 @@ public class CollectionManager {
     };
 
     public CollectionManager() {
-        humanBeingCollection = new TreeMap(humanBeingComparator);
+        this.humanBeingCollection = new TreeMap(humanBeingComparator);
         creationTime = LocalDateTime.now();
 
     }
@@ -55,8 +55,16 @@ public class CollectionManager {
     /**
      * @param obj
      */
-    public void insert(HumanBeing obj) {
-        humanBeingCollection.put(obj.getId(), obj);
+    public void insert(int id, HumanBeing obj) {
+        this.humanBeingCollection.put(id, obj);
+    }
+
+    /**
+     * returns last id in collection
+     * @return last id
+     */
+    public int getLastId() {
+        return humanBeingCollection.lastKey();
     }
 
 }

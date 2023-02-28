@@ -25,7 +25,7 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
 
     }
 
-    public HumanBeing(String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Float impactSpeed, String soundtrackName, double minutesOfWaiting, WeaponType weaponType, Car car) {
+    public HumanBeing(String name, Coordinates coordinates, boolean realHero, Boolean hasToothpick, Float impactSpeed, String soundtrackName, Double minutesOfWaiting, WeaponType weaponType, Car car) {
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = new Date();
@@ -43,8 +43,7 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
     }
 
     public boolean validate() {
-        return id != null && id > 0 && name != null
-                && !name.equals("") && coordinates != null
+        return name != null && !name.equals("") && coordinates != null
                 && creationDate != null && impactSpeed != null
                 && soundtrackName != null;
     }
@@ -66,9 +65,121 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
 
     /**
      * getter for ID of HumanBeing
+     *
      * @return id
      */
     public Integer getId() {
         return id;
     }
+
+    /**
+     * toString method
+     * @return string representation of HumanBeing
+     */
+    @Override
+    public String toString(){
+        return "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Coordinates: " + coordinates.toString() + "\n" +
+                "Creation date: " + creationDate + "\n" +
+                "Real hero: " + realHero + "\n" +
+                "Has toothpick: " + hasToothpick + "\n" +
+                "Impact speed: " + impactSpeed + "\n" +
+                "Soundtrack name: " + soundtrackName + "\n" +
+                "Minutes of waiting: " + minutesOfWaiting + "\n" +
+                "Weapon type: " + weaponType + "\n" +
+                "Car: " + car.toString();
+    }
+
+    /**
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return coordinates
+     */
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    /**
+     * @return creationDate
+     */
+    public java.util.Date getCreationDate() {
+        return creationDate;
+    }
+
+    /**
+     * @return realHero
+     */
+    public boolean isRealHero() {
+        return realHero;
+    }
+
+    /**
+     * @return hasToothpick
+     */
+    public Boolean getHasToothpick() {
+        return hasToothpick;
+    }
+
+    /**
+     * @return impactSpeed
+     */
+    public Float getImpactSpeed() {
+        return impactSpeed;
+    }
+
+    /**
+     * @return soundtrackName
+     */
+    public String getSoundtrackName() {
+        return soundtrackName;
+    }
+
+    /**
+     * @return minutesOfWaiting
+     */
+    public Double getMinutesOfWaiting() {
+        return minutesOfWaiting;
+    }
+
+    /**
+     * @return weaponType
+     */
+    public WeaponType getWeaponType() {
+        return weaponType;
+    }
+
+    /**
+     * @return car
+     */
+    public Car getCar() {
+        return car;
+    }
+
+    /**
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @param coordinates coordinates
+     */
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    /**
+     * @param realHero realHero
+     */
+    public void setRealHero(boolean realHero) {
+        this.realHero = realHero;
+    }
+
 }

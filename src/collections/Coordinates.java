@@ -15,4 +15,11 @@ public class Coordinates implements Validatable {
     public boolean validate() {
         return x <= 180;
     }
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

@@ -4,6 +4,7 @@ import collections.Askers.HumanBeingAsker;
 import collections.Askers.WeaponTypeAsker;
 import collections.Car;
 import collections.Coordinates;
+import collections.HumanBeing;
 import collections.WeaponType;
 import commands.AbstractCommand;
 import commands.Info;
@@ -33,10 +34,9 @@ public class Main {
         commandParser.setScanner(new Scanner(System.in));
 
         try {
-
+            commandManager.getCommands().get("insert").execute(CommandParser.getScanner().nextLine().split(" "));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

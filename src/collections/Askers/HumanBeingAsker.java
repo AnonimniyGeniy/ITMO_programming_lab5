@@ -42,6 +42,8 @@ public class HumanBeingAsker extends Asker {
     }
 
 
+
+
     /**
      * @return Coordinates object
      * @throws EmptyFieldException

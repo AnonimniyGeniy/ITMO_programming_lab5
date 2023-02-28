@@ -16,4 +16,9 @@ public class Car implements Validatable {
     public boolean validate() {
         return name != null;
     }
+
+    @Override
+    public String toString() {
+        return "Car " + name;
+    }
 }
