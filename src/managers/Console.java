@@ -1,5 +1,9 @@
 package managers;
 
+
+/**
+ * Interface for printing messages to the console
+ */
 public interface Console {
 
     void println(Object obj);

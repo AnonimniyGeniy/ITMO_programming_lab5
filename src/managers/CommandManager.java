@@ -15,9 +15,9 @@ public class CommandManager {
     private final List<String> commandHistory = new ArrayList<>();
 
 
-    public CommandManager(List<AbstractCommand> commands){
+    public CommandManager(List<AbstractCommand> commands) {
         this.commands = new HashMap<>();
-        for (AbstractCommand command : commands){
+        for (AbstractCommand command : commands) {
             addCommand(command);
         }
     }
@@ -57,7 +57,6 @@ public class CommandManager {
     public void addHistory(String command) {
         commandHistory.add(command);
     }
-
 
 
 }

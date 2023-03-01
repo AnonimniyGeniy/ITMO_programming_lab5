@@ -6,6 +6,10 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.TreeMap;
 
+
+/**
+ * Class for managing collection
+ */
 public class CollectionManager {
 
     private TreeMap<Integer, HumanBeing> humanBeingCollection;

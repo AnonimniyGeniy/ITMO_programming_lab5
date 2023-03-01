@@ -1,14 +1,21 @@
 package commands;
 
 
+import managers.CollectionManager;
+import managers.Console;
+
 /**
  * Command for exit from program
  * @author AnonimniyGeniy
  */
 public class Exit extends AbstractCommand{
+    private final Console console;
+    private final CollectionManager collectionManager;
+    public Exit(Console console, CollectionManager collectionManager){
 
-    public Exit(){
-        super("Exit", "Stop the program.");
+        super("exit", "Stop the program.");
+        this.console = console;
+        this.collectionManager = collectionManager;
     }
 
     /**
@@ -24,6 +31,7 @@ public class Exit extends AbstractCommand{
         if (args.length > 0) {
             return false;
         } else {
+            console.println("Saving collection to file...");
             System.exit(0);
             return true;
         }

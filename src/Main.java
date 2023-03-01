@@ -1,10 +1,6 @@
 import commands.AbstractCommand;
-import commands.Info;
-import commands.Insert;
-import managers.CollectionManager;
-import managers.CommandManager;
-import managers.CommandParser;
-import managers.UserConsole;
+import commands.*;
+import managers.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +15,7 @@ public class Main {
         var console = new UserConsole();
         commands.add(new Info(console, collectionManager));
         commands.add(new Insert(console, collectionManager));
+        commands.add(new Exit(console, collectionManager));
 
         var commandManager = new CommandManager(commands);
         //console.println(commandManager.getCommands());
@@ -27,8 +24,13 @@ public class Main {
         CommandParser.setScanner(new Scanner(System.in));
 
         try {
+            /*
             collectionManager.setHumanBeingCollection(new TreeMap<>());
-            commandManager.getCommands().get("insert").execute(CommandParser.getScanner().nextLine().split(" "));
+            commandManager.getCommands().get("exit").execute(CommandParser.getScanner().nextLine().split(" "));
+            */
+            collectionManager.setHumanBeingCollection(new TreeMap<>());
+            Executor executor = new Executor(commandManager, console);
+            executor.consoleMode();
         } catch (Exception e) {
             e.printStackTrace();
         }
