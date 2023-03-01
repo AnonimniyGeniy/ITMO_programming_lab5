@@ -1,5 +1,9 @@
 package collections;
 
+
+/**
+ * Enum for WeaponType
+ */
 public enum WeaponType {
     HAMMER,
     AXE,

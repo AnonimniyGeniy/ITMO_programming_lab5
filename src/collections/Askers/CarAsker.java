@@ -7,7 +7,9 @@ import collections.Car;
 import exceptions.EmptyFieldException;
 import exceptions.InvalidObjectException;
 
-
+/**
+ * Class for asking Car object
+ */
 public class CarAsker extends Asker {
 
     private final Console console;

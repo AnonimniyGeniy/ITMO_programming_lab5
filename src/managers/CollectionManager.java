@@ -22,7 +22,7 @@ public class CollectionManager {
     };
 
     public CollectionManager() {
-        this.humanBeingCollection = new TreeMap(humanBeingComparator);
+        humanBeingCollection = new TreeMap(humanBeingComparator);
         creationTime = LocalDateTime.now();
 
     }

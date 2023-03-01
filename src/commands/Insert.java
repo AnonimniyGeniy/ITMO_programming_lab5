@@ -9,7 +9,9 @@ import managers.Console;
 import collections.HumanBeing;
 import collections.Askers.HumanBeingAsker;
 
-
+/**
+ * Command that inserts element in the collection
+ */
 public class Insert extends AbstractCommand{
 
     private final Console console;

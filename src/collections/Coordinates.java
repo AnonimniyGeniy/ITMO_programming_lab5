@@ -2,9 +2,13 @@ package collections;
 
 import other.Validatable;
 
+
+/**
+ * Class for Coordinates
+ */
 public class Coordinates implements Validatable {
-    private double x; //Максимальное значение поля: 180
-    private int y;
+    private final double x; //Максимальное значение поля: 180
+    private final int y;
 
     public Coordinates(double x, int y) {
         this.x = x;

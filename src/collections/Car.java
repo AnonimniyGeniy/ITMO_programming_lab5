@@ -2,8 +2,12 @@ package collections;
 
 import other.Validatable;
 
+
+/**
+ * Class for Car
+ */
 public class Car implements Validatable {
-    private String name; //Поле не может быть null
+    private final String name; //Поле не может быть null
 
     public Car(String name) {
         this.name = name;

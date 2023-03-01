@@ -6,7 +6,9 @@ import collections.WeaponType;
 import exceptions.EmptyFieldException;
 import exceptions.InvalidObjectException;
 
-
+/**
+ * Class for asking WeaponType field
+ */
 public class WeaponTypeAsker extends Asker{
     private final Console console;
 

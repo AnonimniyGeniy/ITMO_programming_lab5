@@ -1,5 +1,10 @@
 package commands;
 
+
+/**
+ * Command for exit from program
+ * @author AnonimniyGeniy
+ */
 public class Exit extends AbstractCommand{
 
     public Exit(){

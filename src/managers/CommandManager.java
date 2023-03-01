@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that manages commands.....
+ * Class for managing commands
  */
 public class CommandManager {
     private final Map<String, AbstractCommand> commands;

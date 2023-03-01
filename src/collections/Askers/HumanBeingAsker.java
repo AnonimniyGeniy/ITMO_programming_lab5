@@ -14,7 +14,9 @@ import collections.Askers.*;
 
 import java.util.Locale;
 
-
+/**
+ * Class for asking HumanBeing fields
+ */
 public class HumanBeingAsker extends Asker {
     private final Console console;
     private final CollectionManager collectionManager;
@@ -105,10 +107,10 @@ public class HumanBeingAsker extends Asker {
                 console.println("Enter realHero (should type True or False, no case sensitive):");
                 String realHeroString = CommandParser.getScanner().nextLine().trim();
                 if (realHeroString.equals("")) throw new EmptyFieldException();
-                if (realHeroString.toUpperCase().equals("TRUE")) {
+                if (realHeroString.equalsIgnoreCase("TRUE")) {
                     realHero = true;
                     break;
-                }else if (realHeroString.toUpperCase().equals("FALSE")) {
+                }else if (realHeroString.equalsIgnoreCase("FALSE")) {
                     realHero = false;
                     break;
                 }else{
@@ -137,10 +139,10 @@ public class HumanBeingAsker extends Asker {
                 console.println("Enter hasToothpick (should be True or False, or null):");
                 String hasToothpickString = CommandParser.getScanner().nextLine().trim();
                 if (hasToothpickString.equals("")) return null;
-                if (hasToothpickString.toUpperCase().equals("TRUE")) {
+                if (hasToothpickString.equalsIgnoreCase("TRUE")) {
                     hasToothpick = true;
                     break;
-                }else if (hasToothpickString.toUpperCase().equals("FALSE")) {
+                }else if (hasToothpickString.equalsIgnoreCase("FALSE")) {
                     hasToothpick = false;
                     break;
                 }else{

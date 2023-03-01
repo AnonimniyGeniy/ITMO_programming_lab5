@@ -1,11 +1,3 @@
-import collections.Askers.CarAsker;
-import collections.Askers.CoordinatesAsker;
-import collections.Askers.HumanBeingAsker;
-import collections.Askers.WeaponTypeAsker;
-import collections.Car;
-import collections.Coordinates;
-import collections.HumanBeing;
-import collections.WeaponType;
 import commands.AbstractCommand;
 import commands.Info;
 import commands.Insert;
@@ -17,6 +9,7 @@ import managers.UserConsole;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,9 +24,10 @@ public class Main {
         //console.println(commandManager.getCommands());
         //commandManager.getCommands().get("info").execute(new String[0]);
         CommandParser commandParser = new CommandParser();
-        commandParser.setScanner(new Scanner(System.in));
+        CommandParser.setScanner(new Scanner(System.in));
 
         try {
+            collectionManager.setHumanBeingCollection(new TreeMap<>());
             commandManager.getCommands().get("insert").execute(CommandParser.getScanner().nextLine().split(" "));
         } catch (Exception e) {
             e.printStackTrace();

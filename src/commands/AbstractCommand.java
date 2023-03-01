@@ -1,5 +1,11 @@
 package commands;
 
+
+/**
+ * Default abstract class describing the behavior of command
+ *
+ * @author AnonimniyGeniy
+ */
 public abstract class AbstractCommand implements Command{
 
     private final String name;

@@ -8,7 +8,9 @@ import collections.Coordinates;
 import exceptions.EmptyFieldException;
 import exceptions.InvalidObjectException;
 
-
+/**
+ * Class for asking coordinates
+ */
 public class CoordinatesAsker extends Asker {
 
     private final Console console;

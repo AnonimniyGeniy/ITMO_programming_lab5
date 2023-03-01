@@ -5,6 +5,10 @@ import managers.Console;
 
 import java.time.LocalDateTime;
 
+
+/**
+ * Command that prints info about collection
+ */
 public class Info extends AbstractCommand {
     private final Console console;
     private final CollectionManager collectionManager;

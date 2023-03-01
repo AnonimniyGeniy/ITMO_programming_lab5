@@ -1,5 +1,9 @@
 package managers;
 
+
+/**
+ * class to print messages to the console
+ */
 public class UserConsole implements Console{
 
 
