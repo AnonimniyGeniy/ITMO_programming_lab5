@@ -18,8 +18,8 @@ public class Main {
         commands.add(new Exit(console, collectionManager));
 
         var commandManager = new CommandManager(commands);
-        //console.println(commandManager.getCommands());
-        //commandManager.getCommands().get("info").execute(new String[0]);
+        commandManager.addCommand(new History(console, commandManager));
+
         CommandParser commandParser = new CommandParser();
         CommandParser.setScanner(new Scanner(System.in));
 
