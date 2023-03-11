@@ -5,7 +5,7 @@ import collections.*;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.TreeMap;
-
+import managers.FileManager;
 
 /**
  * Class for managing collection
@@ -13,8 +13,9 @@ import java.util.TreeMap;
 public class CollectionManager {
 
     private TreeMap<Integer, HumanBeing> humanBeingCollection;
-
+    private final Console console;
     private final LocalDateTime creationTime;
+    private final FileManager fileManager;
     /**
      * Comparator to sort TreeMap by value of HumanBeing impact speed
      */
@@ -25,7 +26,9 @@ public class CollectionManager {
         }
     };
 
-    public CollectionManager() {
+    public CollectionManager(Console console, FileManager fileManager) {
+        this.console = console;
+        this.fileManager = fileManager;
         humanBeingCollection = new TreeMap(humanBeingComparator);
         creationTime = LocalDateTime.now();
 
@@ -69,6 +72,20 @@ public class CollectionManager {
      */
     public int getLastId() {
         return humanBeingCollection.lastKey();
+    }
+
+    /**
+     * saves collection to file
+     */
+    public void saveCollection() {
+        fileManager.writeCollection(humanBeingCollection);
+    }
+
+    /**
+     * loads collection from file
+     */
+    public void loadCollection() {
+        this.humanBeingCollection = fileManager.readCollection();
     }
 
 }

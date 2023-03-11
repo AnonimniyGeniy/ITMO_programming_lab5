@@ -9,13 +9,16 @@ import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-
-        CollectionManager collectionManager = new CollectionManager();
-        List<AbstractCommand> commands = new ArrayList<>();
         var console = new UserConsole();
+        String path = System.getenv("FILENAME");
+
+        FileManager fileManager = new FileManager(path, console);
+        CollectionManager collectionManager = new CollectionManager(console, fileManager);
+        List<AbstractCommand> commands = new ArrayList<>();
         commands.add(new Info(console, collectionManager));
         commands.add(new Insert(console, collectionManager));
         commands.add(new Exit(console, collectionManager));
+        commands.add(new Save(console, collectionManager));
 
         var commandManager = new CommandManager(commands);
         commandManager.addCommand(new History(console, commandManager));
@@ -28,7 +31,7 @@ public class Main {
             collectionManager.setHumanBeingCollection(new TreeMap<>());
             commandManager.getCommands().get("exit").execute(CommandParser.getScanner().nextLine().split(" "));
             */
-            collectionManager.setHumanBeingCollection(new TreeMap<>());
+            collectionManager.loadCollection();
             Executor executor = new Executor(commandManager, console);
             executor.consoleMode();
         } catch (Exception e) {
