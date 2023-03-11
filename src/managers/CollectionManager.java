@@ -88,4 +88,19 @@ public class CollectionManager {
         this.humanBeingCollection = fileManager.readCollection();
     }
 
+
+    /**
+     * removes element from collection by id
+     * @param id - id of element to remove
+     * @return true if element was removed, false if element was not found
+     */
+    public boolean removeById(int id) {
+        if (humanBeingCollection.containsKey(id)) {
+            humanBeingCollection.remove(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
