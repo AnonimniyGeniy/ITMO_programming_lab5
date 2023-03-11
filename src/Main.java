@@ -19,6 +19,7 @@ public class Main {
         commands.add(new Insert(console, collectionManager));
         commands.add(new Exit(console, collectionManager));
         commands.add(new Save(console, collectionManager));
+        commands.add(new Show(console, collectionManager));
 
         var commandManager = new CommandManager(commands);
         commandManager.addCommand(new History(console, commandManager));
