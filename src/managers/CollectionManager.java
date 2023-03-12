@@ -103,6 +103,13 @@ public class CollectionManager {
         }
     }
 
+    /**
+     * removes all elements from collection that are greater than given
+     */
+    public void removeGreater(HumanBeing humanBeing) {
+        humanBeingCollection.entrySet().removeIf(entry -> entry.getValue().compareTo(humanBeing) > 0);
+    }
+
 
 
 }

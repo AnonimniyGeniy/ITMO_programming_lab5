@@ -23,7 +23,8 @@ public class Main {
         commands.add(new Remove(console, collectionManager));
         commands.add(new Update(console, collectionManager));
         commands.add(new Clear(console, collectionManager));
-
+        commands.add(new Remove_greater(console, collectionManager));
+        commands.add(new Replace_if_lowe(console, collectionManager));
         var commandManager = new CommandManager(commands);
         commandManager.addCommand(new History(console, commandManager));
 
