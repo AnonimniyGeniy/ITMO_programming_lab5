@@ -21,7 +21,7 @@ public class Info extends AbstractCommand {
 
     @Override
     public String describe() {
-        return "Выводит в консоль информацию о хранимой коллекции";
+        return "Get info about collection.";
     }
 
     @Override

@@ -58,5 +58,11 @@ public class CommandManager {
         commandHistory.add(command);
     }
 
+    /**
+     * returns array of commands
+     */
+    public AbstractCommand[] getCommandsArray() {
+        return commands.values().toArray(new AbstractCommand[0]);
+    }
 
 }
