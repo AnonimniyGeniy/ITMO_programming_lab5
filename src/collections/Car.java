@@ -14,7 +14,7 @@ public class Car implements Validatable {
     }
 
     /**
-     * @return
+     * @return validation result
      */
     @Override
     public boolean validate() {
@@ -24,5 +24,13 @@ public class Car implements Validatable {
     @Override
     public String toString() {
         return "Car " + name;
+    }
+
+    /**
+     * compare two car objects
+     */
+
+    public int compareTo(Car o) {
+        return name.length() - o.name.length();
     }
 }

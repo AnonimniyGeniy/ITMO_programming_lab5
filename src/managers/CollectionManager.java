@@ -110,6 +110,11 @@ public class CollectionManager {
         humanBeingCollection.entrySet().removeIf(entry -> entry.getValue().compareTo(humanBeing) > 0);
     }
 
-
+    /**
+     * returns array of all elements in collection
+     */
+    public HumanBeing[] getArray() {
+        return humanBeingCollection.values().toArray(new HumanBeing[0]);
+    }
 
 }

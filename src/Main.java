@@ -25,6 +25,8 @@ public class Main {
         commands.add(new Clear(console, collectionManager));
         commands.add(new Remove_greater(console, collectionManager));
         commands.add(new Replace_if_lowe(console, collectionManager));
+        commands.add(new Group_counting_by_impact(console, collectionManager));
+        commands.add(new Count_greater_than_car(console, collectionManager));
         var commandManager = new CommandManager(commands);
         commandManager.addCommand(new History(console, commandManager));
 
