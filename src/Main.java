@@ -28,7 +28,7 @@ public class Main {
         commands.add(new Group_counting_by_impact(console, collectionManager));
         commands.add(new Count_greater_than_car(console, collectionManager));
         commands.add(new Print_descending(console, collectionManager));
-
+        commands.add(new Execute_script(console));
         var commandManager = new CommandManager(commands);
         commandManager.addCommand(new History(console, commandManager));
         commandManager.addCommand(new Help(console, commandManager.getCommandsArray()));

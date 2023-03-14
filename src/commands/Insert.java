@@ -38,6 +38,7 @@ public class Insert extends AbstractCommand{
             if (args.length == 0){
                 throw new WrongArgsAmount();
             }
+            //console.println(args[0] + args[1]);
             int key = Integer.parseInt(args[0]);
             if (collectionManager.getHumanBeingCollection().containsKey(key)){
                 console.println("Element with this key already exists.");

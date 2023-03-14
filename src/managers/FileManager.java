@@ -25,7 +25,7 @@ public class FileManager {
     public FileManager(String path, Console console) {
         //if file does not exist, create it using File
         if (!new File(path).exists()) {
-
+            path = "../" + path;
         }
 
         this.path = path;
