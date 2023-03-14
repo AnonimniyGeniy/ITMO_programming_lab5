@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -50,11 +51,18 @@ public class Executor {
             String[] command;
             do {
                 console.print("Enter command: ");
-                command = userScanner.nextLine().trim().split(" ", 2);
-                status = executeCommand(command);
+                status = Status.OK;
+                try {
+                    command = userScanner.nextLine().trim().split(" ", 2);
+                    status = executeCommand(command);
+                } catch (NoSuchElementException e) {
+                    console.println("Ctrl-D pressed, finishing program...");
+                    status = Status.EXIT;
+                }
+
             } while (status != Status.EXIT);
-        } catch (Exception e) {
-            console.println("Error in console mode");
+        }catch (Exception e) {
+            console.println(e.getMessage());
         }
     }
 
@@ -62,7 +70,7 @@ public class Executor {
     /**
      * method for executing commands in script mode
      *
-     * @param args - arguments of command
+     * @param arg - argument of command
      * @return status of execution
      */
 
@@ -111,7 +119,7 @@ public class Executor {
             console.println("File not found");
         } catch (RecursionInScriptRecursion e) {
             console.println("Recursion in script");
-        }finally {
+        } finally {
             CommandParser.setScanner(defaultScanner);
             CommandParser.setConsoleMode();
         }
@@ -139,7 +147,8 @@ public class Executor {
             if (userCommand[0].equals("exit")) {
                 return Status.EXIT;
             } else if (userCommand[0].equals("execute_script")) {
-                if (!commandManager.getCommands().get("execute_script").execute(userCommand[1].trim().split(" "))) return Status.ERROR;
+                if (!commandManager.getCommands().get("execute_script").execute(userCommand[1].trim().split(" ")))
+                    return Status.ERROR;
                 return scriptMode(userCommand[1]);
             }
             if (userCommand.length == 1) {
