@@ -424,7 +424,7 @@ public class CommandReceiver {
     /**
      * execute_script command realization
      */
-    public boolean executeScript(String[] args){
+    public boolean executeScript(String[] args) {
         if (args.length == 0) {
             console.printErr("No file name specified, usage: execute_script <file_name>");
             return false;

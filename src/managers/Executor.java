@@ -47,7 +47,7 @@ public class Executor {
         commands.add(new GroupCountingByImpact(console, collectionManager, commandReceiver));
         commands.add(new CountGreaterThanCar(console, collectionManager, commandReceiver));
         commands.add(new PrintDescending(console, collectionManager, commandReceiver));
-        commands.add(new ExecuteScript(console, commandReceiver));
+        commands.add(new ExecuteScript(commandReceiver));
         var commandManager = new CommandManager(commands);
 
         commandManager.addCommand(new History(console, commandManager, commandReceiver));

@@ -1,10 +1,5 @@
 package commands;
 
-import collections.HumanBeing;
-import collections.askers.HumanBeingAsker;
-import exceptions.EmptyFieldException;
-import exceptions.IncorrectScriptInputException;
-import exceptions.InvalidObjectException;
 import exceptions.WrongArgsAmount;
 import managers.CollectionManager;
 import managers.Console;
@@ -17,6 +12,7 @@ public class Insert extends AbstractCommand {
     private final Console console;
     private final CollectionManager collectionManager;
     private final CommandReceiver commandReceiver;
+
     public Insert(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
         super("Insert", "Add element to the collection.");
         this.collectionManager = collectionManager;

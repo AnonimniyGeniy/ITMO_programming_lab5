@@ -1,10 +1,5 @@
 package commands;
 
-import collections.HumanBeing;
-import collections.askers.HumanBeingAsker;
-import exceptions.EmptyFieldException;
-import exceptions.IncorrectScriptInputException;
-import exceptions.InvalidObjectException;
 import exceptions.WrongArgsAmount;
 import managers.CollectionManager;
 import managers.Console;

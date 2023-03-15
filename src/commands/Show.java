@@ -12,6 +12,7 @@ public class Show extends AbstractCommand {
     final Console console;
     final CollectionManager collectionManager;
     private final CommandReceiver commandReceiver;
+
     public Show(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
         super("show", "Show all elements of collection");
         this.console = console;
