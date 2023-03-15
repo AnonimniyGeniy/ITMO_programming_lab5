@@ -9,28 +9,17 @@ import managers.Console;
 public class Help extends AbstractCommand {
     private final AbstractCommand[] commands;
     private final Console console;
+    private CommandReceiver commandReceiver;
 
-    public Help(Console console, AbstractCommand[] commands) {
+    public Help(Console console, AbstractCommand[] commands, CommandReceiver commandReceiver) {
         super("help", "shows help for available commands");
         this.commands = commands;
         this.console = console;
+        this.commandReceiver = commandReceiver;
     }
 
     @Override
     public boolean execute(String[] args) {
-        try {
-            if (args.length != 0) {
-                console.println("Command doesn't take arguments");
-                return false;
-            }
-            for (AbstractCommand command : commands) {
-                console.println(command.getName() + " - " + command.describe());
-            }
-            console.println("help - " + describe());
-            return true;
-        } catch (Exception e) {
-            console.println("Something went wrong");
-            return false;
-        }
+        return commandReceiver.help(args, commands);
     }
 }

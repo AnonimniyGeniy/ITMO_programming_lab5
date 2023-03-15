@@ -1,10 +1,7 @@
 package collections;
 
-import commands.Command;
 import other.Validatable;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -42,10 +39,6 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
         this.car = car;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public boolean validate() {
         return name != null && !name.equals("") && coordinates != null
                 && creationDate != null && impactSpeed != null
@@ -76,12 +69,17 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     /**
      * toString method
+     *
      * @return string representation of HumanBeing
      */
     @Override
-    public String toString(){
+    public String toString() {
         return "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Coordinates: " + coordinates.toString() + "\n" +
@@ -103,10 +101,24 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
     }
 
     /**
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @return coordinates
      */
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    /**
+     * @param coordinates coordinates
+     */
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     /**
@@ -121,6 +133,13 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
      */
     public boolean isRealHero() {
         return realHero;
+    }
+
+    /**
+     * @param realHero realHero
+     */
+    public void setRealHero(boolean realHero) {
+        this.realHero = realHero;
     }
 
     /**
@@ -165,25 +184,26 @@ public class HumanBeing implements Comparable<HumanBeing>, Validatable {
         return car;
     }
 
-    /**
-     * @param name name
-     */
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HumanBeing that = (HumanBeing) o;
+        return realHero == that.realHero &&
+                id.equals(that.id) &&
+                name.equals(that.name) &&
+                coordinates.equals(that.coordinates) &&
+                creationDate.equals(that.creationDate) &&
+                hasToothpick.equals(that.hasToothpick) &&
+                impactSpeed.equals(that.impactSpeed) &&
+                soundtrackName.equals(that.soundtrackName) &&
+                minutesOfWaiting.equals(that.minutesOfWaiting) &&
+                weaponType == that.weaponType &&
+                car.equals(that.car);
     }
 
-    /**
-     * @param coordinates coordinates
-     */
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
-
-    /**
-     * @param realHero realHero
-     */
-    public void setRealHero(boolean realHero) {
-        this.realHero = realHero;
-    }
-
 }

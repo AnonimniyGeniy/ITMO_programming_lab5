@@ -1,18 +1,16 @@
 package managers;
 
-import collections.*;
+import collections.HumanBeing;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.TreeMap;
-import managers.FileManager;
 
 /**
  * Class for managing collection
  */
 public class CollectionManager {
 
-    private TreeMap<Integer, HumanBeing> humanBeingCollection;
     private final Console console;
     private final LocalDateTime creationTime;
     private final FileManager fileManager;
@@ -25,6 +23,7 @@ public class CollectionManager {
             return o1.compareTo(o2);
         }
     };
+    private TreeMap<Integer, HumanBeing> humanBeingCollection;
 
     public CollectionManager(Console console, FileManager fileManager) {
         this.console = console;
@@ -68,6 +67,7 @@ public class CollectionManager {
 
     /**
      * returns last id in collection
+     *
      * @return last id
      */
     public int getLastId() {
@@ -91,6 +91,7 @@ public class CollectionManager {
 
     /**
      * removes element from collection by id
+     *
      * @param id - id of element to remove
      * @return true if element was removed, false if element was not found
      */

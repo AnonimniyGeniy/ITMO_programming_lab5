@@ -1,15 +1,16 @@
-package collections.Askers;
-import exceptions.IncorrectScriptInputException;
-import managers.CommandParser;
-import managers.Console;
+package collections.askers;
+
 import collections.WeaponType;
 import exceptions.EmptyFieldException;
+import exceptions.IncorrectScriptInputException;
 import exceptions.InvalidObjectException;
+import managers.CommandParser;
+import managers.Console;
 
 /**
  * Class for asking WeaponType field
  */
-public class WeaponTypeAsker extends Asker{
+public class WeaponTypeAsker extends Asker {
     private final Console console;
 
     public WeaponTypeAsker(Console console) {

@@ -10,21 +10,17 @@ import managers.Console;
 public class Save extends AbstractCommand {
     private final Console console;
     private final CollectionManager collectionManager;
-
-    public Save(Console console, CollectionManager collectionManager) {
+    private final CommandReceiver commandReceiver;
+    public Save(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
         super("save", "Save collection to file.");
         this.console = console;
         this.collectionManager = collectionManager;
+        this.commandReceiver = commandReceiver;
     }
 
     @Override
     public boolean execute(String[] args) {
-        if (args.length > 0) {
-            console.printErr("The command doesn't take any arguments, usage: save");
-            return false;
-        }
-        collectionManager.saveCollection();
-        return true;
+        return commandReceiver.save(args);
     }
 
 }

@@ -1,12 +1,11 @@
-package collections.Askers;
+package collections.askers;
 
-import collections.Askers.Asker;
-import exceptions.IncorrectScriptInputException;
-import managers.CommandParser;
-import managers.Console;
 import collections.Coordinates;
 import exceptions.EmptyFieldException;
+import exceptions.IncorrectScriptInputException;
 import exceptions.InvalidObjectException;
+import managers.CommandParser;
+import managers.Console;
 
 /**
  * Class for asking coordinates

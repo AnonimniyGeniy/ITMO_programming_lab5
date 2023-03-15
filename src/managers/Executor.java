@@ -1,6 +1,6 @@
 package managers;
 
-import commands.Command;
+import commands.*;
 import exceptions.RecursionInScriptRecursion;
 
 import java.io.File;
@@ -18,15 +18,7 @@ public class Executor {
     private final List<String> recursionStack = new ArrayList<>();
     private final CommandManager commandManager;
     private final Console console;
-
-    /**
-     * enum for status of execution
-     */
-    public enum Status {
-        OK,
-        ERROR,
-        EXIT,
-    }
+    private CommandReceiver commandReceiver;
 
     /**
      * constructor for Executor
@@ -36,9 +28,33 @@ public class Executor {
      *                       and command history
      * @param Console        - console for user interaction
      */
-    public Executor(CommandManager commandManager, Console Console) {
+
+
+    public Executor(CollectionManager collectionManager, Console сonsole) {
+        this.console = сonsole;
+        this.commandReceiver = new CommandReceiver(console, collectionManager);
+        List<AbstractCommand> commands = new ArrayList<>();
+        commands.add(new Info(console, collectionManager, commandReceiver));
+        commands.add(new Insert(console, collectionManager, commandReceiver));
+        commands.add(new Exit(console, collectionManager, commandReceiver));
+        commands.add(new Save(console, collectionManager, commandReceiver));
+        commands.add(new Show(console, collectionManager, commandReceiver));
+        commands.add(new Remove(console, collectionManager, commandReceiver));
+        commands.add(new Update(console, collectionManager, commandReceiver));
+        commands.add(new Clear(console, collectionManager, commandReceiver));
+        commands.add(new RemoveGreater(console, collectionManager, commandReceiver));
+        commands.add(new ReplaceIfLowe(console, collectionManager, commandReceiver));
+        commands.add(new GroupCountingByImpact(console, collectionManager, commandReceiver));
+        commands.add(new CountGreaterThanCar(console, collectionManager, commandReceiver));
+        commands.add(new PrintDescending(console, collectionManager, commandReceiver));
+        commands.add(new ExecuteScript(console, commandReceiver));
+        var commandManager = new CommandManager(commands);
+
+        commandManager.addCommand(new History(console, commandManager, commandReceiver));
+        commandManager.addCommand(new Help(console, commandManager.getCommandsArray(), commandReceiver));
         this.commandManager = commandManager;
-        this.console = Console;
+        this.commandReceiver = new CommandReceiver(console, collectionManager);
+
     }
 
     /**
@@ -61,11 +77,10 @@ public class Executor {
                 }
 
             } while (status != Status.EXIT);
-        }catch (Exception e) {
+        } catch (Exception e) {
             console.println(e.getMessage());
         }
     }
-
 
     /**
      * method for executing commands in script mode
@@ -127,7 +142,6 @@ public class Executor {
         return Status.ERROR;
     }
 
-
     /**
      * method for executing commands in cli mode
      *
@@ -163,6 +177,16 @@ public class Executor {
             console.println("Error: " + e.getMessage());
             return Status.ERROR;
         }
+    }
+
+
+    /**
+     * enum for status of execution
+     */
+    public enum Status {
+        OK,
+        ERROR,
+        EXIT,
     }
 
 

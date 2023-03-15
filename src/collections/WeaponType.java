@@ -11,7 +11,7 @@ public enum WeaponType {
     RIFLE,
     BAT;
 
-    public static String names(){
+    public static String names() {
         String names = "";
         for (WeaponType weaponType : WeaponType.values()) {
             names += weaponType.name() + ", ";

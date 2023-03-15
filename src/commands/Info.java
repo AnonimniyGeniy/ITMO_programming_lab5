@@ -3,8 +3,6 @@ package commands;
 import managers.CollectionManager;
 import managers.Console;
 
-import java.time.LocalDateTime;
-
 
 /**
  * Command that prints info about collection
@@ -12,11 +10,13 @@ import java.time.LocalDateTime;
 public class Info extends AbstractCommand {
     private final Console console;
     private final CollectionManager collectionManager;
+    private final CommandReceiver commandReceiver;
 
-    public Info(Console console, CollectionManager collectionManager) {
+    public Info(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
         super("info", "Get info about collection.");
         this.collectionManager = collectionManager;
         this.console = console;
+        this.commandReceiver = commandReceiver;
     }
 
     @Override
@@ -31,15 +31,6 @@ public class Info extends AbstractCommand {
 
     @Override
     public boolean execute(String[] args) {
-        if (args.length > 0) {
-            console.printErr("The command doesn't take any arguments, usage: info");
-            return false;
-        }
-        LocalDateTime initTime = collectionManager.getCreationTime();
-        console.println("Collection info:");
-        console.println("Collection type: " + collectionManager.getHumanBeingCollection().getClass().getName());
-        console.println("Collection size: " + collectionManager.getHumanBeingCollection().size());
-        console.println("Initialization time: " + initTime);
-        return true;
+        return commandReceiver.info(args);
     }
 }

@@ -1,24 +1,22 @@
 package commands;
 
 
-import collections.HumanBeing;
-import collections.askers.HumanBeingAsker;
-import exceptions.EmptyFieldException;
-import exceptions.IncorrectScriptInputException;
-import exceptions.InvalidObjectException;
 import exceptions.WrongArgsAmount;
 import managers.CollectionManager;
 import managers.Console;
 
+
 /**
- * command to update element by id
+ * command for removing all elements from collection that are greater than the specified one
  */
-public class Update extends AbstractCommand {
+
+public class RemoveGreater extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Console console;
     private final CommandReceiver commandReceiver;
-    public Update(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
-        super("update", "update element by id");
+
+    public RemoveGreater(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
+        super("remove_greater", "remove all elements from collection that are greater than the specified one");
         this.collectionManager = collectionManager;
         this.console = console;
         this.commandReceiver = commandReceiver;
@@ -26,7 +24,8 @@ public class Update extends AbstractCommand {
 
     @Override
     public boolean execute(String[] args) throws WrongArgsAmount {
-        return commandReceiver.update(args);
+        return commandReceiver.removeGreater(args);
     }
+
 
 }

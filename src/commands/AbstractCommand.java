@@ -6,12 +6,12 @@ package commands;
  *
  * @author AnonimniyGeniy
  */
-public abstract class AbstractCommand implements Command{
+public abstract class AbstractCommand implements Command {
 
     private final String name;
     private final String description;
 
-    public AbstractCommand(String name, String description){
+    public AbstractCommand(String name, String description) {
         this.name = name;
         this.description = description;
     }

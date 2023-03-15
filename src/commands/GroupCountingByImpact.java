@@ -1,18 +1,19 @@
 package commands;
 
+
 import managers.CollectionManager;
 import managers.Console;
 
 /**
- * command for clearing collection
+ * group counting by impact speed
  */
-public class Clear extends AbstractCommand {
+public class GroupCountingByImpact extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Console console;
     private final CommandReceiver commandReceiver;
 
-    public Clear(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
-        super("clear", "clear collection");
+    public GroupCountingByImpact(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
+        super("group_counting_by_impact", "group counting by impact speed");
         this.collectionManager = collectionManager;
         this.console = console;
         this.commandReceiver = commandReceiver;
@@ -21,6 +22,8 @@ public class Clear extends AbstractCommand {
 
     @Override
     public boolean execute(String[] args) {
-        return commandReceiver.Clear();
+        return commandReceiver.groupCountingByImpact(args);
+
     }
+
 }

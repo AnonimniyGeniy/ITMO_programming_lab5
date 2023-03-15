@@ -1,11 +1,11 @@
-package collections.Askers;
+package collections.askers;
 
-import exceptions.IncorrectScriptInputException;
-import managers.CommandParser;
-import managers.Console;
 import collections.Car;
 import exceptions.EmptyFieldException;
+import exceptions.IncorrectScriptInputException;
 import exceptions.InvalidObjectException;
+import managers.CommandParser;
+import managers.Console;
 
 /**
  * Class for asking Car object

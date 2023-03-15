@@ -1,7 +1,6 @@
 package commands;
 
 
-import managers.CollectionManager;
 import managers.CommandManager;
 import managers.Console;
 
@@ -11,14 +10,16 @@ import managers.Console;
 public class History extends AbstractCommand {
     private final CommandManager commandManager;
     private final Console console;
+    private final CommandReceiver commandReceiver;
 
     /**
      * Constructor for History
      */
-    public History(Console console, CommandManager commandManager) {
+    public History(Console console, CommandManager commandManager, CommandReceiver commandReceiver) {
         super("history", "Shows last 13 commands (without their arguments)");
         this.commandManager = commandManager;
         this.console = console;
+        this.commandReceiver = commandReceiver;
     }
 
 
@@ -43,14 +44,6 @@ public class History extends AbstractCommand {
      */
     @Override
     public boolean execute(String[] args) {
-        if (args.length > 0) {
-            console.printErr("The command doesn't take any arguments, usage: history");
-            return false;
-        }
-        console.println("Last 13 commands:");
-        for (String command : commandManager.getCommandHistory()) {
-            console.println(command);
-        }
-        return true;
+        return commandReceiver.history(args, commandManager);
     }
 }

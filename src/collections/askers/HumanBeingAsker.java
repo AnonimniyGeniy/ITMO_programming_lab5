@@ -1,18 +1,15 @@
-package collections.Askers;
+package collections.askers;
 
 import collections.Car;
 import collections.Coordinates;
+import collections.HumanBeing;
 import collections.WeaponType;
+import exceptions.EmptyFieldException;
 import exceptions.IncorrectScriptInputException;
+import exceptions.InvalidObjectException;
 import managers.CollectionManager;
 import managers.CommandParser;
 import managers.Console;
-import collections.HumanBeing;
-import exceptions.EmptyFieldException;
-import exceptions.InvalidObjectException;
-import collections.Askers.*;
-
-import java.util.Locale;
 
 /**
  * Class for asking HumanBeing fields
@@ -42,8 +39,6 @@ public class HumanBeingAsker extends Asker {
 
         return humanBeing;
     }
-
-
 
 
     /**
@@ -110,10 +105,10 @@ public class HumanBeingAsker extends Asker {
                 if (realHeroString.equalsIgnoreCase("TRUE")) {
                     realHero = true;
                     break;
-                }else if (realHeroString.equalsIgnoreCase("FALSE")) {
+                } else if (realHeroString.equalsIgnoreCase("FALSE")) {
                     realHero = false;
                     break;
-                }else{
+                } else {
                     throw new NumberFormatException();
                 }
             } catch (NumberFormatException e) {
@@ -142,10 +137,10 @@ public class HumanBeingAsker extends Asker {
                 if (hasToothpickString.equalsIgnoreCase("TRUE")) {
                     hasToothpick = true;
                     break;
-                }else if (hasToothpickString.equalsIgnoreCase("FALSE")) {
+                } else if (hasToothpickString.equalsIgnoreCase("FALSE")) {
                     hasToothpick = false;
                     break;
-                }else{
+                } else {
                     throw new NumberFormatException();
                 }
             } catch (NumberFormatException e) {
@@ -173,13 +168,14 @@ public class HumanBeingAsker extends Asker {
             } catch (NumberFormatException e) {
                 console.println("impactSpeed must be double");
                 if (fileMode) throw new IncorrectScriptInputException();
-            }catch (EmptyFieldException e) {
+            } catch (EmptyFieldException e) {
                 console.println("impactSpeed cannot be empty");
                 if (fileMode) throw new IncorrectScriptInputException();
             }
         }
         return impactSpeed;
     }
+
     /**
      * @return String soundtrackName
      * @throws IncorrectScriptInputException

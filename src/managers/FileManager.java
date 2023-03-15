@@ -1,14 +1,12 @@
 package managers;
 
-import com.google.gson.*;
 import collections.HumanBeing;
-import collections.WeaponType;
-import collections.Car;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
-import com.sun.source.tree.Tree;
 
 import java.io.*;
-import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.TreeMap;
 
@@ -16,16 +14,16 @@ import java.util.TreeMap;
  * Class for managing file that stores collection
  */
 public class FileManager {
+    private final String path;
+    private final Console console;
     Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .create();
-    private final String path;
-    private final Console console;
 
     public FileManager(String path, Console console) {
         //if file does not exist, create it using File
         if (!new File(path).exists()) {
-            path = "../" + path;
+            //path = "../" + path;
         }
 
         this.path = path;
@@ -90,15 +88,15 @@ public class FileManager {
 
             } catch (FileNotFoundException e) {
                 console.println("File not found");
-            } catch (NoSuchElementException exception){
+            } catch (NoSuchElementException exception) {
                 console.println("File is empty");
-            } catch (JsonParseException exception){
+            } catch (JsonParseException exception) {
                 console.println("File is corrupted");
             } catch (IllegalStateException | IOException exception) {
                 console.println("Error during reading file: " + exception.getMessage());
                 System.exit(0);
             }
-        }else {
+        } else {
             console.println("Path is not found");
         }
 

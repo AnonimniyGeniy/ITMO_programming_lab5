@@ -11,12 +11,14 @@ import exceptions.WrongArgsAmount;
 public interface Command {
     /**
      * Command descriptor
+     *
      * @return Command description
      */
     String describe();
 
     /**
      * Command name getter
+     *
      * @return Command name
      */
     String getName();

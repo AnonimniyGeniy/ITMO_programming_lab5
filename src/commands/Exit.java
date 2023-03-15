@@ -6,16 +6,20 @@ import managers.Console;
 
 /**
  * Command for exit from program
+ *
  * @author AnonimniyGeniy
  */
-public class Exit extends AbstractCommand{
+public class Exit extends AbstractCommand {
     private final Console console;
     private final CollectionManager collectionManager;
-    public Exit(Console console, CollectionManager collectionManager){
+    private final CommandReceiver commandReceiver;
+
+    public Exit(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
 
         super("exit", "Stop the program.");
         this.console = console;
         this.collectionManager = collectionManager;
+        this.commandReceiver = commandReceiver;
     }
 
     /**
@@ -26,14 +30,6 @@ public class Exit extends AbstractCommand{
      */
     @Override
     public boolean execute(String[] args) {
-        //if len of args > 0 print error in console by user console
-        //else exit
-        if (args.length > 0) {
-            return false;
-        } else {
-            console.println("Saving collection to file...");
-            System.exit(0);
-            return true;
-        }
+        return commandReceiver.exit(args);
     }
 }

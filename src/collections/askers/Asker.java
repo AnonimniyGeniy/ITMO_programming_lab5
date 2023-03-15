@@ -1,9 +1,10 @@
-package collections.Askers;
+package collections.askers;
 
 
 import exceptions.EmptyFieldException;
 import exceptions.IncorrectScriptInputException;
 import exceptions.InvalidObjectException;
+
 /**
  * Abstract class for asking objects
  *

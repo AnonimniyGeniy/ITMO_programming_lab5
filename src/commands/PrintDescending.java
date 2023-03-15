@@ -1,26 +1,27 @@
 package commands;
 
+
 import managers.CollectionManager;
 import managers.Console;
 
 /**
- * command for clearing collection
+ * prints all elements in descending order
  */
-public class Clear extends AbstractCommand {
+public class PrintDescending extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Console console;
     private final CommandReceiver commandReceiver;
 
-    public Clear(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
-        super("clear", "clear collection");
+    public PrintDescending(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
+        super("print_descending", "print all elements in descending order");
         this.collectionManager = collectionManager;
         this.console = console;
         this.commandReceiver = commandReceiver;
     }
 
-
     @Override
     public boolean execute(String[] args) {
-        return commandReceiver.Clear();
+        return commandReceiver.printDescending(args);
     }
+
 }

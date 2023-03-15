@@ -1,4 +1,4 @@
 package exceptions;
 
-public class RecursionInScriptRecursion extends Exception{
+public class RecursionInScriptRecursion extends Exception {
 }
