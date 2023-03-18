@@ -22,7 +22,7 @@ public class ReplaceIfLowe extends AbstractCommand {
 
 
     @Override
-    public boolean execute(String[] args) throws WrongArgsAmount {
+    public boolean execute(String[] args) {
         return commandReceiver.replaceIfLowe(args);
     }
 

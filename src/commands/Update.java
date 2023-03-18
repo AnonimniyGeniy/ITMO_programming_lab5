@@ -21,7 +21,7 @@ public class Update extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(String[] args) throws WrongArgsAmount {
+    public boolean execute(String[] args) {
         return commandReceiver.update(args);
     }
 

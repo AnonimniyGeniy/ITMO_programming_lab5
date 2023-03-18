@@ -31,7 +31,7 @@ public class Insert extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(String[] args) throws WrongArgsAmount {
+    public boolean execute(String[] args) {
         return commandReceiver.insert(args);
     }
 }

@@ -30,30 +30,30 @@ public class Executor {
      */
 
 
-    public Executor(CollectionManager collectionManager, Console сonsole) {
-        this.console = сonsole;
-        this.commandReceiver = new CommandReceiver(console, collectionManager);
+    public Executor(CollectionManager collectionManager, Console console) {
+        this.console = console;
+        this.commandReceiver = new CommandReceiver(this.console, collectionManager);
         List<AbstractCommand> commands = new ArrayList<>();
-        commands.add(new Info(console, collectionManager, commandReceiver));
-        commands.add(new Insert(console, collectionManager, commandReceiver));
-        commands.add(new Exit(console, collectionManager, commandReceiver));
-        commands.add(new Save(console, collectionManager, commandReceiver));
-        commands.add(new Show(console, collectionManager, commandReceiver));
-        commands.add(new Remove(console, collectionManager, commandReceiver));
-        commands.add(new Update(console, collectionManager, commandReceiver));
-        commands.add(new Clear(console, collectionManager, commandReceiver));
-        commands.add(new RemoveGreater(console, collectionManager, commandReceiver));
-        commands.add(new ReplaceIfLowe(console, collectionManager, commandReceiver));
-        commands.add(new GroupCountingByImpact(console, collectionManager, commandReceiver));
-        commands.add(new CountGreaterThanCar(console, collectionManager, commandReceiver));
-        commands.add(new PrintDescending(console, collectionManager, commandReceiver));
+        commands.add(new Info(this.console, collectionManager, commandReceiver));
+        commands.add(new Insert(this.console, collectionManager, commandReceiver));
+        commands.add(new Exit(this.console, collectionManager, commandReceiver));
+        commands.add(new Save(this.console, collectionManager, commandReceiver));
+        commands.add(new Show(this.console, collectionManager, commandReceiver));
+        commands.add(new Remove(this.console, collectionManager, commandReceiver));
+        commands.add(new Update(this.console, collectionManager, commandReceiver));
+        commands.add(new Clear(this.console, collectionManager, commandReceiver));
+        commands.add(new RemoveGreater(this.console, collectionManager, commandReceiver));
+        commands.add(new ReplaceIfLowe(this.console, collectionManager, commandReceiver));
+        commands.add(new GroupCountingByImpact(this.console, collectionManager, commandReceiver));
+        commands.add(new CountGreaterThanCar(this.console, collectionManager, commandReceiver));
+        commands.add(new PrintDescending(this.console, collectionManager, commandReceiver));
         commands.add(new ExecuteScript(commandReceiver));
         var commandManager = new CommandManager(commands);
 
-        commandManager.addCommand(new History(console, commandManager, commandReceiver));
-        commandManager.addCommand(new Help(console, commandManager.getCommandsArray(), commandReceiver));
+        commandManager.addCommand(new History(this.console, commandManager, commandReceiver));
+        commandManager.addCommand(new Help(this.console, commandManager.getCommandsArray(), commandReceiver));
         this.commandManager = commandManager;
-        this.commandReceiver = new CommandReceiver(console, collectionManager);
+        this.commandReceiver = new CommandReceiver(this.console, collectionManager);
 
     }
 

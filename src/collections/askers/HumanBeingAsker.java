@@ -70,10 +70,9 @@ public class HumanBeingAsker extends Asker {
 
     /**
      * @return String name
-     * @throws EmptyFieldException
      * @throws IncorrectScriptInputException
      */
-    private String askName() throws EmptyFieldException, IncorrectScriptInputException {
+    private String askName() throws IncorrectScriptInputException {
         String name;
         var fileMode = CommandParser.fileMode();
         while (true) {
@@ -155,7 +154,7 @@ public class HumanBeingAsker extends Asker {
      * @return double impactSpeed
      * @throws IncorrectScriptInputException
      */
-    private Float askImpactSpeed() throws IncorrectScriptInputException, EmptyFieldException {
+    private Float askImpactSpeed() throws IncorrectScriptInputException {
         Float impactSpeed;
         var fileMode = CommandParser.fileMode();
         while (true) {
@@ -179,9 +178,8 @@ public class HumanBeingAsker extends Asker {
     /**
      * @return String soundtrackName
      * @throws IncorrectScriptInputException
-     * @throws EmptyFieldException
      */
-    private String askSoundtrackName() throws IncorrectScriptInputException, EmptyFieldException {
+    private String askSoundtrackName() throws IncorrectScriptInputException {
         String soundtrackName;
         var fileMode = CommandParser.fileMode();
         while (true) {

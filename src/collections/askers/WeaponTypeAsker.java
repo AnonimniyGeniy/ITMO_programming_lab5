@@ -21,20 +21,18 @@ public class WeaponTypeAsker extends Asker {
      * @return Asked WeaponType
      * @throws IncorrectScriptInputException
      * @throws EmptyFieldException
-     * @throws InvalidObjectException
      */
     @Override
-    public WeaponType build() throws IncorrectScriptInputException, EmptyFieldException, InvalidObjectException {
+    public WeaponType build() throws IncorrectScriptInputException, EmptyFieldException {
         WeaponType weaponType = askWeaponType();
         return weaponType;
     }
 
     /**
      * @return WeaponType object
-     * @throws EmptyFieldException
      * @throws IncorrectScriptInputException
      */
-    public WeaponType askWeaponType() throws EmptyFieldException, IncorrectScriptInputException {
+    public WeaponType askWeaponType() throws IncorrectScriptInputException {
         WeaponType weaponType;
         String weaponTypeString;
         var fileMode = CommandParser.fileMode();

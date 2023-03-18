@@ -23,7 +23,7 @@ public class RemoveGreater extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(String[] args) throws WrongArgsAmount {
+    public boolean execute(String[] args) {
         return commandReceiver.removeGreater(args);
     }
 

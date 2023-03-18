@@ -32,10 +32,9 @@ public class CarAsker extends Asker {
 
     /**
      * @return Car object
-     * @throws EmptyFieldException
      * @throws IncorrectScriptInputException
      */
-    public Car askCar() throws EmptyFieldException, IncorrectScriptInputException {
+    public Car askCar() throws IncorrectScriptInputException {
         Car car;
         String name;
         var fileMode = CommandParser.fileMode();

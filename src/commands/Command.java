@@ -29,6 +29,6 @@ public interface Command {
      * @param args
      * @return Execution result
      */
-    boolean execute(String[] args) throws WrongArgsAmount;
+    boolean execute(String[] args);
 
 }

@@ -22,7 +22,7 @@ public class CoordinatesAsker extends Asker {
      * @return
      */
     @Override
-    public Coordinates build() throws IncorrectScriptInputException, EmptyFieldException, InvalidObjectException {
+    public Coordinates build() throws IncorrectScriptInputException, InvalidObjectException {
         Coordinates coordinates = new Coordinates(askX(), askY());
         if (!coordinates.validate()) throw new InvalidObjectException();
 

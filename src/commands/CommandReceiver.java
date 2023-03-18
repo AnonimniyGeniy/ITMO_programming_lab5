@@ -40,41 +40,6 @@ public class CommandReceiver {
         return true;
     }
 
-    /**
-     * RemoveGreater command realization
-     *
-     * @param args arguments for command
-     * @return true if element was removed
-     * @throws WrongArgsAmount if amount of arguments is wrong
-     */
-    /*
-    public boolean removeGreater(String[] args) throws WrongArgsAmount {
-        try {
-            if (args.length != 0) {
-                throw new WrongArgsAmount();
-            }
-
-            HumanBeing humanBeing = null;
-            try {
-                humanBeing = new HumanBeingAsker(console, collectionManager).build();
-            } catch (IncorrectScriptInputException e) {
-                console.println("Incorrect input.");
-            } catch (EmptyFieldException e) {
-                console.println("Field can't be empty.");
-            } catch (InvalidObjectException e) {
-                console.println("Invalid object.");
-            }
-
-            collectionManager.removeGreater(humanBeing);
-            console.println(humanBeing);
-
-
-        } catch (WrongArgsAmount e) {
-            console.println("Wrong amount of arguments.");
-        }
-        return false;
-    }
-    */
 
     /**
      * CountGreaterThanCar command realization
@@ -94,8 +59,6 @@ public class CommandReceiver {
             }
             console.println("There are " + count + " elements whose car field value is greater than the specified one");
             return true;
-        } catch (EmptyFieldException e) {
-            console.println("Field can't be empty.");
         } catch (IncorrectScriptInputException e) {
             console.println("Incorrect input.");
         }
