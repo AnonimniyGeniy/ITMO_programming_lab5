@@ -1,7 +1,7 @@
 package commands;
 
-import exceptions.WrongArgsAmount;
 import managers.CollectionManager;
+import managers.CommandReceiver;
 import managers.Console;
 
 /**
@@ -14,7 +14,7 @@ public class Insert extends AbstractCommand {
     private final CommandReceiver commandReceiver;
 
     public Insert(Console console, CollectionManager collectionManager, CommandReceiver commandReceiver) {
-        super("Insert", "Add element to the collection.");
+        super("Insert", "Add element to the collection by id. Syntax: insert id {element}");
         this.collectionManager = collectionManager;
         this.console = console;
         this.commandReceiver = commandReceiver;
@@ -22,7 +22,7 @@ public class Insert extends AbstractCommand {
 
     @Override
     public String describe() {
-        return "Inserts element in the collection.";
+        return "Inserts element in the collection by id. Syntax: insert id {element}.";
     }
 
     @Override

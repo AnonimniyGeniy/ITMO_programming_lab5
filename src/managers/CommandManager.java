@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * Class for managing commands
+ * (invoker)
  */
 public class CommandManager {
     private final Map<String, AbstractCommand> commands;

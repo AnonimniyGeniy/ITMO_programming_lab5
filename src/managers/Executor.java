@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 /**
  * Class that controls the command input mode and manages Scanner and handling whole execution.
+ * (receiver)
  */
 public class Executor {
 
@@ -23,10 +24,10 @@ public class Executor {
     /**
      * constructor for Executor
      *
-     * @param commandManager - CommandManager
+     * @param collectionManager - CommandManager
      *                       for managing commands
      *                       and command history
-     * @param Console        - console for user interaction
+     * @param console        - console for user interaction
      */
 
 
@@ -43,7 +44,7 @@ public class Executor {
         commands.add(new Update(this.console, collectionManager, commandReceiver));
         commands.add(new Clear(this.console, collectionManager, commandReceiver));
         commands.add(new RemoveGreater(this.console, collectionManager, commandReceiver));
-        commands.add(new ReplaceIfLowe(this.console, collectionManager, commandReceiver));
+        commands.add(new ReplaceIfLower(this.console, collectionManager, commandReceiver));
         commands.add(new GroupCountingByImpact(this.console, collectionManager, commandReceiver));
         commands.add(new CountGreaterThanCar(this.console, collectionManager, commandReceiver));
         commands.add(new PrintDescending(this.console, collectionManager, commandReceiver));

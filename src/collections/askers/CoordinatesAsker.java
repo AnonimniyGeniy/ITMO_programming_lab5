@@ -39,14 +39,14 @@ public class CoordinatesAsker extends Asker {
         var fileMode = CommandParser.fileMode();
         while (true) {
             try {
-                console.println("Enter x:");
+                console.println("Enter x (should be double less than 180):");
                 String xString = CommandParser.getScanner().nextLine().trim();
 
                 x = Double.parseDouble(xString);
                 if (x > 180) throw new NumberFormatException();
                 break;
             } catch (NumberFormatException e) {
-                console.println("X must be a number less than 180 or null");
+                console.println("X must be a double less than 180");
                 if (fileMode) throw new IncorrectScriptInputException();
             }
         }
@@ -62,12 +62,12 @@ public class CoordinatesAsker extends Asker {
         var fileMode = CommandParser.fileMode();
         while (true) {
             try {
-                console.println("Enter y:");
+                console.println("Enter y (should be int):");
                 String yString = CommandParser.getScanner().nextLine().trim();
                 y = Integer.parseInt(yString);
                 break;
             } catch (NumberFormatException e) {
-                console.println("Y must be a number");
+                console.println("Y must be a integer less than" + Integer.MAX_VALUE + "and more than " + Integer.MIN_VALUE );
                 if (fileMode) throw new IncorrectScriptInputException();
             }
         }

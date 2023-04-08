@@ -1,6 +1,7 @@
 package commands;
 
 
+import managers.CommandReceiver;
 import managers.Console;
 
 /**

@@ -1,6 +1,8 @@
 package commands;
 
 
+import managers.CommandReceiver;
+
 /**
  * Command to execute script from file
  */

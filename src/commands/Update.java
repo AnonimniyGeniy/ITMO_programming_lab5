@@ -1,8 +1,8 @@
 package commands;
 
 
-import exceptions.WrongArgsAmount;
 import managers.CollectionManager;
+import managers.CommandReceiver;
 import managers.Console;
 
 /**

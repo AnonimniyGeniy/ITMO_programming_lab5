@@ -1,17 +1,15 @@
-package commands;
+package managers;
 
 
 import collections.Car;
 import collections.HumanBeing;
 import collections.askers.CarAsker;
 import collections.askers.HumanBeingAsker;
+import commands.AbstractCommand;
 import exceptions.EmptyFieldException;
 import exceptions.IncorrectScriptInputException;
 import exceptions.InvalidObjectException;
 import exceptions.WrongArgsAmount;
-import managers.CollectionManager;
-import managers.CommandManager;
-import managers.Console;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -250,14 +248,19 @@ public class CommandReceiver {
     }
 
     /**
-     * replace if lowe command realization
+     * replace if lower command realization
      */
-    public boolean replaceIfLowe(String[] args) {
+    public boolean replaceIfLower(String[] args) {
         try {
             if (args.length != 1) {
                 throw new WrongArgsAmount();
             }
+            //check if key exists
             int key = Integer.parseInt(args[0]);
+            if (!collectionManager.getHumanBeingCollection().containsKey(key)) {
+                console.println("Key doesn't exist.");
+                return false;
+            }
             HumanBeing humanBeing = null;
             try {
                 humanBeing = new HumanBeingAsker(console, collectionManager).build();
@@ -273,6 +276,8 @@ public class CommandReceiver {
             if (collectionManager.getHumanBeingCollection().get(key).compareTo(humanBeing) > 0) {
                 collectionManager.insert(key, humanBeing);
                 console.println("Element changed successfully.");
+            }else{
+                console.println("Element is not lower.");
             }
 
 
