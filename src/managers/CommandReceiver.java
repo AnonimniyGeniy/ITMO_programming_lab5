@@ -199,6 +199,7 @@ public class CommandReceiver {
     public boolean remove(String[] args) {
         try {
             if (args.length != 1) {
+                console.printErr("This command requires 1 argument(id)");
                 throw new WrongArgsAmount();
             }
             int id = Integer.parseInt(args[0]);
@@ -228,6 +229,7 @@ public class CommandReceiver {
     public boolean removeGreater(String[] args) {
         try {
             if (args.length != 1) {
+                console.printErr("This command requires 1 argument(key).");
                 throw new WrongArgsAmount();
             }
             int id = Integer.parseInt(args[0]);
@@ -253,6 +255,7 @@ public class CommandReceiver {
     public boolean replaceIfLower(String[] args) {
         try {
             if (args.length != 1) {
+                console.printErr("This command requires 1 argument(key).");
                 throw new WrongArgsAmount();
             }
             //check if key exists
@@ -319,7 +322,8 @@ public class CommandReceiver {
      */
     public boolean update(String[] args) {
         try {
-            if (args.length == 0) {
+            if (args.length != 1) {
+                console.printErr("This command requires 1 argument(key).");
                 throw new WrongArgsAmount();
             }
             int key = Integer.parseInt(args[0]);
@@ -357,7 +361,8 @@ public class CommandReceiver {
      */
     public boolean insert(String[] args) {
         try {
-            if (args.length == 0) {
+            if (args.length != 1) {
+                console.printErr("This command requires 1 argument(key).");
                 throw new WrongArgsAmount();
             }
             //console.println(args[0] + args[1]);
